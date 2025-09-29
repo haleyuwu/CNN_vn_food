@@ -1,0 +1,10 @@
+0 banh mi
+1 banh tet
+2 banh xeo
+3 bun bo
+4 bun dau mam tom
+5 bun rieu
+6 com tam
+7 goi cuon
+8 pho
+9 xoi xeo

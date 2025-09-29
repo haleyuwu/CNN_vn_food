@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🇻🇳 Vietnamese Dishes Recognition (CNN)</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-accent"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="flag">🇻🇳</span>
+      <span class="title">Vietnamese Dishes Recognition</span>
+      <span class="ann-tag">CNN</span>
+    </div>
+    <p class="tagline">Nhận diện món Việt – realtime & thân thuộc</p>
+  </header>
+
+  <main class="container grid-two">
+    <!-- LEFT: Upload -->
+    <section class="card">
+      <h2>📤 Tải ảnh món ăn</h2>
+      <p class="sub">Chọn ảnh từ máy để dự đoán.</p>
+      <div class="upload-zone" id="upload-zone">
+        <input id="file-input" type="file" accept="image/*"/>
+        <button id="btn-predict">Dự đoán</button>
+        <div id="preview" class="preview"></div>
+      </div>
+
+      <div id="result" class="result-card hidden">
+        <h3>Kết quả</h3>
+        <div class="pred-row">
+          <div>
+            <div class="pred-label"><span id="pred-label">—</span></div>
+            <div class="pred-conf"><span id="pred-conf">—</span></div>
+          </div>
+        </div>
+        <h4>Top 3</h4>
+        <ol id="top3" class="top3"></ol>
+      </div>
+    </section>
+
+    <!-- RIGHT: Realtime -->
+    <section class="card">
+      <h2>🎥 Realtime từ webcam</h2>
+      <p class="sub">Bật camera để hệ thống phân loại liên tục.</p>
+
+      <div class="webcam-wrap">
+        <video id="video" playsinline autoplay muted></video>
+        <canvas id="canvas" class="hidden"></canvas>
+        <div class="live-badge" id="live-badge">OFF</div>
+        <div class="live-pred">
+          <div class="chip" id="live-label">—</div>
+          <div class="bar-wrap">
+            <div class="bar" id="live-bar" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="btn-start" class="btn primary">Bật camera</button>
+        <button id="btn-stop" class="btn" disabled>Tắt</button>
+        <span class="hint">Mẹo: mở bằng http://127.0.0.1:5000 để cấp quyền camera.</span>
+      </div>
+
+      <details class="hint box">
+        <summary>Class labels đang dùng</summary>
+        <ul>
+          {% for c in class_names %}
+          <li>{{ c }}</li>
+          {% endfor %}
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="motif"></div>
+    <p>Made with ❤️ for Vietnamese cuisine • CNN-based classifier</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+:root{
+  --orange:#ff7a00;
+  --orange-2:#ff9a3c;
+  --cream:#fff7ef;
+  --paper:#ffffff;
+  --ink:#222;
+  --muted:#6b7280;
+  --line:#e8e3dc;
+  --chip:#ffe1c4;
+  --bar:#ffcf99;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; padding:0;
+  font-family:"Be Vietnam Pro",system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(255,154,60,.20), transparent 60%),
+    radial-gradient(1200px 600px at 100% 110%, rgba(255,122,0,.12), transparent 60%),
+    var(--cream);
+  color:var(--ink);
+}
+
+.bg-accent{position:fixed; inset:0; pointer-events:none; z-index:-1}
+
+.site-header{max-width:1100px; margin:28px auto 8px; padding:0 16px}
+.brand{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.title{font-weight:800; font-size:28px; letter-spacing:.3px}
+.ann-tag{
+  padding:4px 10px; font-weight:800; border-radius:999px;
+  background:linear-gradient(90deg, var(--orange), var(--orange-2));
+  color:#fff; box-shadow:0 6px 16px rgba(255,122,0,.35);
+}
+.tagline{margin:6px 0 0; color:var(--muted)}
+
+.container{max-width:1100px; margin:22px auto 40px; padding:0 16px}
+.grid-two{display:grid; gap:18px}
+@media(min-width:960px){ .grid-two{grid-template-columns:1fr 1fr} }
+
+.card{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:20px; padding:18px;
+  box-shadow: 0 10px 30px rgba(255,122,0,.08);
+}
+h2{margin:0 0 6px}
+.sub{color:var(--muted); margin:0 0 14px}
+
+.upload-zone{display:flex; flex-direction:column; gap:12px}
+#file-input{width:100%}
+#btn-predict{
+  border:0; padding:10px 16px; border-radius:12px; cursor:pointer;
+  background:linear-gradient(90deg, var(--orange), var(--orange-2));
+  color:white; font-weight:800; letter-spacing:.3px;
+  box-shadow:0 10px 20px rgba(255,122,0,.25);
+}
+#btn-predict:active{transform:translateY(1px)}
+.preview img{
+  max-width:100%; border-radius:14px; border:1px solid var(--line);
+}
+
+.result-card.hidden{display:none}
+.result-card{margin-top:14px; border-radius:14px; border:1px dashed var(--line); padding:14px; background:#fffdfa}
+.pred-row{display:flex; align-items:center; gap:12px}
+.pred-label{font-size:20px; font-weight:800; color:#c24f00}
+.pred-conf{color:var(--muted); font-weight:700}
+.top3{margin:8px 0 0 18px}
+.top3 li{margin:2px 0}
+
+/* Webcam */
+.webcam-wrap{
+  position:relative; width:100%; aspect-ratio:16/9;
+  background: #fffdfa; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+}
+video{width:100%; height:100%; object-fit:cover; display:block}
+.live-badge{
+  position:absolute; top:10px; left:10px;
+  background:linear-gradient(90deg, var(--orange), var(--orange-2));
+  color:#fff; font-weight:800; padding:6px 10px; border-radius:999px; font-size:12px;
+  box-shadow:0 8px 20px rgba(255,122,0,.35);
+}
+.live-pred{
+  position:absolute; bottom:10px; left:10px; right:10px;
+  display:flex; gap:10px; align-items:center;
+}
+.chip{
+  background:var(--chip); color:#6a3b00; font-weight:900; padding:6px 12px; border-radius:999px;
+  min-width:80px; text-align:center; box-shadow:0 8px 18px rgba(255,122,0,.15);
+}
+.bar-wrap{flex:1; height:10px; background:#fff; border:1px solid var(--line); border-radius:999px; overflow:hidden}
+.bar{height:100%; width:0%; background:linear-gradient(90deg, var(--bar), var(--orange-2))}
+
+.controls{display:flex; align-items:center; gap:10px; margin-top:12px}
+.btn{
+  border:1px solid var(--line); background:#fff; color:var(--ink);
+  border-radius:12px; padding:10px 14px; font-weight:700; cursor:pointer;
+}
+.btn[disabled]{opacity:.6; cursor:not-allowed}
+.btn.primary{
+  background: linear-gradient(90deg, var(--orange), var(--orange-2));
+  color:#fff; border-color:transparent; font-weight:900;
+  box-shadow:0 8px 20px rgba(255,122,0,.28);
+}
+.hint{color:var(--muted); font-size:14px}
+.hint.box{
+  border:1px dashed var(--line); border-radius:12px; padding:10px 14px; margin-top:12px; background:#fffdfa;
+}
+
+/* Footer */
+.site-footer{max-width:1100px; margin:10px auto 30px; padding:0 16px; text-align:center; color:var(--muted)}
+.motif{
+  height:10px; margin:0 auto 10px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,154,60,.8) 0 10px, rgba(255,122,0,.85) 10px 20px),
+    linear-gradient(90deg, rgba(255,207,153,.65), rgba(255,207,153,.65));
+  border-radius:12px;
+}
+
+.hidden{display:none}
